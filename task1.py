@@ -25,11 +25,11 @@ if __name__ == '__main__':
 # --------------STUPID WAY--------------------
 if __name__ == '__main__':
     t = time.time()
-    sum = 0
+    s = 0
     for number in range(1, LIMIT):
         if number % 3 == 0:
-            sum += number
+            s += number
         elif number % 5 == 0:
-            sum += number
-    print(sum)
+            s += number
+    print(s)
     print(time.time() - t, '\n\n')

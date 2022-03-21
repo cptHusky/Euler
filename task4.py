@@ -1,4 +1,8 @@
+# answer is 906609
+import time
+
 if __name__ == '__main__':
+    t = time.time()
     largest = 0
     for number1 in range(1000):
         for number2 in range(1000):
@@ -6,4 +10,5 @@ if __name__ == '__main__':
             if str(test) == str(test)[::-1]:
                 if largest < test:
                     largest = test
-    print(largest)
+    print(f'{number1} x {number2} = {largest}')
+    print(time.time() - t, '\n\n')
