@@ -61,6 +61,7 @@ if __name__ == '__main__':
     for i in range(len(diapason_delimiters)):
         result *= diapason_delimiters[i]
     print(f'result {result}')
+    print(time.time() - t, 'seconds spent\n\n')
 
 
 # --------------STUPID WAY--------------------
