@@ -2,12 +2,10 @@
 import time
 from collections import deque
 
-DIAPASON_MAX = 1000
+DIAPASON_MAX = 20
 single_number_delimiters = deque()
-# global diapason_delimiters
 diapason_delimiters = []
 buf_delimiters = []
-tim = []
 
 
 def prime_gen(limit):
@@ -24,7 +22,6 @@ def prime_gen(limit):
         if is_prime:
             primes.append(number)
             counter += 1
-            # print(f'{number} is prime')
 
 
 def factor(number_var):
@@ -43,41 +40,28 @@ def factor(number_var):
 
 
 def add_delimiters(deq):
-    global diapason_delimiters
-    # print(deq)
-    buf_delimiters = diapason_delimiters
+    buf_delimiters.clear()
+    buf_delimiters.extend(diapason_delimiters)
     while deq:
-        # d = deq.popleft()
-        if deq[0] not in buf_delimiters:
-            diapason_delimiters.append(deq.popleft())
-        # print(diapason_delimiters)
+        d = deq.pop()
+        if d in buf_delimiters:
+            buf_delimiters.remove(d)
         else:
-            if diapason_delimiters[-1:] in buf_delimiters:
-                buf_delimiters.remove(diapason_delimiters[-1:])
-
-
+            diapason_delimiters.append(d)
 
 
 if __name__ == '__main__':
     t = time.time()
-    number = 124954
+    result = 1
     prime_gen(DIAPASON_MAX / 2)
     for number in range(2, DIAPASON_MAX + 1):
-        # buffer_deque = factor(number)
         add_delimiters(factor(number))
-        if number % 100 == 0:
+        if number % 1000 == 0:
             print(number)
-    print(diapason_delimiters)
+    for i in range(len(diapason_delimiters)):
+        result *= diapason_delimiters[i]
+    print(f'result {result}')
     print(time.time() - t, 'seconds spent\n\n')
-
-
-        # print(type(buffer_list), '\n', buffer_list)
-
-
-
-
-
-
 
 
 # --------------STUPID WAY--------------------
@@ -96,5 +80,4 @@ if __name__ == '__main__':
 #             print(number, 'is result')
 #             break
 #     print(time.time() - t, 'seconds spent\n\n')
-
-
+#
