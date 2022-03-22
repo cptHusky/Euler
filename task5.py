@@ -1,4 +1,9 @@
+# answer is 232792560
 import time
+
+DIAPASON_MAX = 20
+prime_delimiters_single = []
+prime_delimiters_diapason = []
 
 
 def prime_gen(limit):
@@ -22,9 +27,9 @@ if __name__ == '__main__':
     t = time.time()
     number = 0
     while True:
-        number += 20
+        number += DIAPASON_MAX
         cond = True
-        for delimiter in range(2, 21):
+        for delimiter in range(2, DIAPASON_MAX + 1):
             if cond:
                 if number % delimiter != 0:
                     cond = False
@@ -32,4 +37,4 @@ if __name__ == '__main__':
         if cond:
             print(number, 'is result')
             break
-    print(time.time() - t, '\n\n')
+    print(time.time() - t, 'seconds spent\n\n')

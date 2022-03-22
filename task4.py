@@ -11,4 +11,4 @@ if __name__ == '__main__':
                 if largest < test:
                     largest = test
     print(f'{number1} x {number2} = {largest}')
-    print(time.time() - t, '\n\n')
+    print(time.time() - t, 'seconds spent\n\n')

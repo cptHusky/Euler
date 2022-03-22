@@ -13,4 +13,4 @@ if __name__ == '__main__':
         if numbers[0] % 2 == 0:
             even_sum += numbers[0]
         print(numbers, '   ', even_sum)
-    print(time.time() - t, '\n\n')
+    print(time.time() - t, 'seconds spent\n\n')

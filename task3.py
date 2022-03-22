@@ -30,4 +30,4 @@ if __name__ == '__main__':
             print(primes[i])
             break
         i -= 1
-    print(time.time() - t, '\n\n')
+    print(time.time() - t, 'seconds spent\n\n')

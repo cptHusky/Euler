@@ -19,7 +19,7 @@ if __name__ == '__main__':
     sum15 = arif_seq_sum(15)
     print(sum3, sum5, sum15)
     print(sum3 + sum5 - sum15)
-    print(time.time() - t, '\n\n')
+    print(time.time() - t, 'seconds spent\n\n')
 
 
 # --------------STUPID WAY--------------------
@@ -32,4 +32,4 @@ if __name__ == '__main__':
         elif number % 5 == 0:
             s += number
     print(s)
-    print(time.time() - t, '\n\n')
+    print(time.time() - t, 'seconds spent\n\n')
