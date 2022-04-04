@@ -1,27 +1,12 @@
 # answer is 232792560
 import time
 from collections import deque
+from functions import prime_gen
 
 DIAPASON_MAX = 20
 single_number_delimiters = deque()
 diapason_delimiters = []
 buf_delimiters = []
-
-
-def prime_gen(limit):
-    number = 1
-    counter = 1
-    global primes
-    primes = [2, ]
-    while number < limit:
-        number += 2
-        is_prime = True
-        for n in range(counter):
-            if number % primes[n] == 0:
-                is_prime = False
-        if is_prime:
-            primes.append(number)
-            counter += 1
 
 
 def factor(number_var):
@@ -53,7 +38,7 @@ def add_delimiters(deq):
 if __name__ == '__main__':
     t = time.time()
     result = 1
-    prime_gen(DIAPASON_MAX / 2)
+    primes = prime_gen(DIAPASON_MAX / 2)
     for number in range(2, DIAPASON_MAX + 1):
         add_delimiters(factor(number))
         if number % 1000 == 0:
