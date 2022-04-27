@@ -1,3 +1,4 @@
+# answer is 232792560
 def get_triplet(m, n):
     a = pow(m, 2) - pow(n, 2)
     b = 2 * m * n

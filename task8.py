@@ -1,3 +1,4 @@
+# answer is 23514624000
 import re
 from collections import deque
 
