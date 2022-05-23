@@ -1,6 +1,8 @@
 
 
 def prime_gen(limit):
+    status_gap = 10000
+    status = 0
     number = 1
     counter = 1
     primes = [2, ]
@@ -13,5 +15,7 @@ def prime_gen(limit):
         if is_prime:
             primes.append(number)
             counter += 1
-            print(f'{number} is prime')
+            if number > status:
+                print(f'{number} out of {limit}')
+                status += status_gap
     return primes
