@@ -1,5 +1,3 @@
-import re
-
 FILENAME = 'numbers20x20grid.txt'
 numbers = []
 
@@ -52,7 +50,7 @@ def diagonal(numbers):
             b = int(numbers[m - 1][n + 1])
             c = int(numbers[m - 2][n + 2])
             d = int(numbers[m - 3][n + 3])
-            print(a, b, c, d)
+            # print(a, b, c, d)
             product = a * b * c * d
             if product > d_largest_product:
                 d_largest_product = product
@@ -70,9 +68,8 @@ if __name__ == '__main__':
     with open(FILENAME, 'r') as f:
         all_numbers = f.read().splitlines()
         for i in range(len(all_numbers)):
-            # all_numbers[i].replace('\\n', '')
             numbers.append(all_numbers[i].split(' '))
-            print(numbers[i])
+            # print(numbers[i])
         f.close()
     result = find_largest_product(numbers)
     print(result)
