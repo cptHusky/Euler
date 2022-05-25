@@ -1,6 +1,17 @@
 FILENAME = 'numbers20x20grid.txt'
 numbers = []
+info = dict.fromkeys(['a', 'b', 'c', 'd', 'starting_coordinate', 'direction'])
 
+
+def update_info(a, b, c, d, starting_coordinate, direction):
+    starting_coordinate[0] += 1
+    starting_coordinate[1] += 1
+    info['a'] = a
+    info['b'] = b
+    info['c'] = c
+    info['d'] = d
+    info['starting_coordinate'] = starting_coordinate
+    info['direction'] = direction
 
 def vertical(numbers):
     v_largest_product = 0
@@ -14,6 +25,7 @@ def vertical(numbers):
             product = a * b * c * d
             if product > v_largest_product:
                 v_largest_product = product
+                update_info(a, b, c, d, [n, m], 'vertical')
     return v_largest_product
 
 
@@ -29,6 +41,7 @@ def horizontal(numbers):
             product = a * b * c * d
             if product > h_largest_product:
                 h_largest_product = product
+                update_info(a, b, c, d, [n, m], 'horizontal')
     return h_largest_product
 
 
@@ -44,6 +57,7 @@ def diagonal(numbers):
             product = a * b * c * d
             if product > d_largest_product:
                 d_largest_product = product
+                update_info(a, b, c, d, [n, m], 'diagonal left-top right-bottom')
     for m in range(3, len(numbers)):
         for n in range(len(numbers[m]) - 3):
             a = int(numbers[m][n])
@@ -54,6 +68,7 @@ def diagonal(numbers):
             product = a * b * c * d
             if product > d_largest_product:
                 d_largest_product = product
+                update_info(a, b, c, d, [n, m], 'diagonal right-top left-bottom')
     return d_largest_product
 
 
@@ -73,3 +88,4 @@ if __name__ == '__main__':
         f.close()
     result = find_largest_product(numbers)
     print(result)
+    print(info)
